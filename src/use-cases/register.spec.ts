@@ -1,20 +1,19 @@
-import { expect, describe, it } from "vitest";
-import { RegisterUseCase } from "./register";
-import { compare } from "bcryptjs";
 import { InMemoryUsersRepository } from "@/repositories/in-memory/in-memory-users-repository";
-import { UserAlreadyExistsError } from "./errors/user-already-exists-error";
-import { beforeEach } from "node:test";
+import { UserAlreadyExistsError } from "@/use-cases/errors/user-already-exists-error";
+import { compare } from "bcryptjs";
+import { expect, describe, it, beforeEach } from "vitest";
+import { RegisterUseCase } from "./register";
+
+let usersRepository: InMemoryUsersRepository;
+let sut: RegisterUseCase;
 
 describe("Register Use Case", () => {
-  let usersRepository: InMemoryUsersRepository;
-  let sut: RegisterUseCase;
-
   beforeEach(() => {
     usersRepository = new InMemoryUsersRepository();
     sut = new RegisterUseCase(usersRepository);
   });
 
-  it("should be able to register", async () => {
+  it("should to register", async () => {
     const { user } = await sut.execute({
       name: "John Doe",
       email: "johndoe@example.com",
@@ -40,7 +39,7 @@ describe("Register Use Case", () => {
   });
 
   it("should not be able to register with same email twice", async () => {
-    const email = " johndoe@example.com";
+    const email = "johndoe@example.com";
 
     await sut.execute({
       name: "John Doe",
