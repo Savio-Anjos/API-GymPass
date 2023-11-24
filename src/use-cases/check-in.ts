@@ -6,14 +6,14 @@ import { getDistanceBetweenCoordinates } from "@/utils/get-distance-between-coor
 import { MaxNumberOfCheckInsError } from "./errors/max-number-of-check-ins-error";
 import { MaxDistanceError } from "./errors/max-distance-error";
 
-interface ChexkInUseCaseRequest {
+interface CheckInUseCaseRequest {
   userId: string;
   gymId: string;
   userLatitude: number;
   userLongitude: number;
 }
 
-interface ChexkInUseCaseResponse {
+interface CheckInUseCaseResponse {
   checkIn: CheckIn;
 }
 
@@ -28,7 +28,7 @@ export class CheckInUseCase {
     gymId,
     userLatitude,
     userLongitude,
-  }: ChexkInUseCaseRequest): Promise<ChexkInUseCaseResponse> {
+  }: CheckInUseCaseRequest): Promise<CheckInUseCaseResponse> {
     const gym = await this.gymsRepository.findById(gymId);
 
     if (!gym) {
