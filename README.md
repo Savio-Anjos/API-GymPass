@@ -18,7 +18,7 @@ Esse projeto está utilizando as seguintes tecnologias:
 
 ## 📜 Descrição
 
-Esse projeto tem reproduz um serviço bem comum na atualidade,
+Esse projeto reproduz um serviço bem comum na atualidade,
 o intuito central é que o usuário consiga fazer check-in em academias.
 
 ## ⚙️ Como funciona?
