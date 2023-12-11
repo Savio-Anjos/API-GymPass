@@ -11,10 +11,10 @@
 
 Esse projeto está utilizando as seguintes tecnologias:
 
-- [Node](https://angular.io/)
-- [Fastify](https://www.apollographql.com/)
-- [Vitest](https://ng.ant.design/docs/introduce/en)
-- [Docker](https://www.cypress.io/)
+- [Node](https://nodejs.org/en)
+- [Fastify](https://fastify.dev/)
+- [Vitest](https://vitest.dev/)
+- [Docker](https://www.docker.com/)
 
 ## 📜 Descrição
 
@@ -76,15 +76,29 @@ npm i
 yarn
 ```
 
+### Execute o docker compose
+
+```bash
+docker compose up
+```
+
+### Execute o docker
+
+```bash
+docker start
+```
+
+### Rode as migrations
+
+```bash
+npx prisma migrate dev
+```
+
 ### Inicie a aplicação
 
 ```bash
 npm run start:dev
 ```
-
-## 🖼️ Layout
-
-<img src=".github/layout.png" />
 
 ---
 
