@@ -52,6 +52,41 @@ o intuito central é que o usuário consiga fazer check-in em academias.
 - [x] Todas listas de dados estão paginadas com 20 itens por página;
 - [x] O usuário é identificado por um JWT (JSON Web Token);
 
+## Rotas da aplicação
+
+A seguir estão as principais rotas da aplicação:
+
+### Usuários
+
+- **POST** `/users`: Registra um novo usuário.
+- **POST** `/sessions`: Autentica um usuário.
+- **PATCH** `/token/refresh`: Atualiza o token de acesso.
+
+#### Autenticado
+
+- **GET** `/me`: Obtém o perfil do usuário autenticado.
+
+### Academias
+
+- **GET** `/gyms/search`: Busca academias.
+- **GET** `/gyms/nearby`: Encontra academias próximas.
+
+#### Apenas para Administradores
+
+- **POST** `/gyms`: Cria uma nova academia.
+  - Middleware: `verifyUserRole("ADMIN")`
+
+### Check-ins
+
+- **GET** `/check-ins/history`: Histórico de check-ins.
+- **GET** `/check-ins/metrics`: Métricas de check-ins.
+
+#### Apenas para Administradores
+
+- **POST** `/gyms/:gymId/check-ins`: Realiza um novo check-in.
+- **PATCH** `/check-ins/:checkInId/validate`: Valida um check-in.
+  - Middleware: `verifyUserRole("ADMIN")`
+
 ## 🎲 Quer customizar o projeto?
 
 ### Clone esse repositório
